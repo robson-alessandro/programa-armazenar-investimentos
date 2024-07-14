@@ -9,8 +9,10 @@ const conennection = mysql.createConnection({
 
 function buscarMovimentacao(req,res){
     const nome = req.params.nome
-    console.log(nome)
-    res.send('tudo certo')
+    conennection.query('SELECT * FROM movimentacoes WHERE nome = ?',[nome],function(error,result,field){
+        res.status(200).json(result)
+    })
+
 
 }
 
