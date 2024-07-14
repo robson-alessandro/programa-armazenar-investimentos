@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/axios@0.21.4/dist/axios.min.js"></script>
+    <script type="module" src="./frontend.js" defer></script>
+    <script src="/cadastrar.js" defer></script>
+    <script src="/deletar.js" defer></script>
+    <script type="module" src="./app.js" defer></script>
+
+    <title>principal</title>
+</head>
+<body>
+    <header>
+        <h1 class="titulo_principal">investimentos</h1>
+    </header>
+    <section class="painel_navegacao">
+        <button class="botao_navegacao botao_cadastro">cadastrar</button>
+        <button class="botao_navegacao botao_delete">deletar</button>
+        <button class="botao_navegacao botao_alterar">alterar</button>
+    </section>
+
+    <section class="painel_cadastro" style="display: none" >
+        <form class="painel_registrar" >
+            <h2 class="titulo_secundario">resgistrar compra</h2>
+            <ul>
+                <li>
+                    <input type="checkbox" class="botao_radio" id="primeira_compra" value="true">
+                    <label for="primeira_compra">primeira compra deste investimento</label>
+                </li>
+                <li>
+                    <label>escolha o tipo do investimento</label><br>
+                    <input type="radio" class="botao_radio"  name="tipo" id="acao"><label for="acao" checked>ação</label>
+                    <input type="radio" class="botao_radio" name="tipo" id="fundo_imobiliario"><label for="fundo_imobiliario">fundo imobiliario</label>
+                    
+                </li>
+                <li>
+                    <label >digite o nome do investimento</label>
+                    <input type="text" id="nome_compra_investimento">
+                    
+                </li>
+                <li>
+                    <label >digite a data da compra</label>
+                    <input type="date" id="data_compra_investimento" >
+                </li>
+                <li>
+                    <label >digite a quantidade ações compradas</label>
+                    <input type="number" id="quantidade_compra_investimento">
+                </li>
+                <li>
+                    <label >digite o valor total da compra</label>
+                    <input type="number" id="valor_compra_investimento">
+                </li>
+                <li>
+                    <button type="submit" id="botao_compra">salvar</button>
+                </li>
+            </ul>
+    
+        </form>
+        <form class="painel_registrar">
+            <h2 class="titulo_secundario">resgistrar venda</h2>
+            <ul>
+                <li>
+                    <label for="">digite o nome do ativo</label>
+                    <input type="text" id="nome_venda_investimento">
+                </li>
+                <li>
+                    <label for="">digite a data da venda</label>
+                    <input type="date" id="data_venda_investimento">
+                </li>
+                <li>
+                    <label for="">digite a quantidade</label>
+                    <input type="number" id="quantidade_venda_investimento">
+                </li>
+                <li>
+                    <label for="">digite o valor da venda</label>
+                    <input type="number" id="valor_venda_investimento" >
+                </li>
+                <li>
+                    <button id="botao_venda">salvar</button>
+                </li>
+            </ul>
+    
+        </form>
+        <form class="painel_registrar">
+            <h2 class="titulo_secundario">resgistrar dividendo</h2>
+            <ul>
+                <li>
+                    <label for="">digite o nome do ativo</label>
+                    <input type="text" id="nome_dividendo_investimento">
+                </li>
+                <li>
+                    <label for="">digite a data de recebimento</label>
+                    <input type="date" id="data_dividendo_investimento" >
+                </li>
+                <li>
+                    <label for="">digite o valor recebido</label>
+                    <input type="number" id="valor_dividendo_investimento">
+                </li>
+                <li>
+                    <button id="botao_dividendo">salvar</button>
+                </li>
+            </ul>
+    
+        </form>
+    </section>
+
+    <section class="painel_delete" style="display: none">
+        <h2>deletar</h2>
+        <p>digite o nome do investimento para buscar os dados:</p>
+        <input type="text" id="input_delete">
+        <button class="busca_delete">buscar</button>
+
+    </section>
+
+    <section class="painel_alterar" style="display: none">
+        <h2>alterar</h2>
+        <p>digite o nome do investimento para buscar os dados:</p>
+        <input type="text" >
+        <button >buscar</button>
+
+    </section>
+
+    <section class="painel_mostrar_investimentos">
+        <table>
+            <tr>
+                <th>nome </th>
+                <th>tipo</th>
+                <th>data compra</th>
+                <th>valor de dividendos</th>
+                <th>quantidade</th>
+                <th>valor investido</th>
+                <th>valor medio</th>
+                <th>meses com o investimento</th>
+                <th>rendimento</th>
+            </tr>
+            <tbody class="tabela_investimentos">
+            </tbody> 
+        </table>
+
+    </section >
+</body>
+</html>

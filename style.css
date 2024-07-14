@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Francois+One&family=Freeman&family=Jersey+25&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+:root{
+    --cor-fundo : #edeade;
+    --cor-borda : #adeada;
+    --fonte-titulo: "Freeman", sans-serif;
+    --fonte-secundaria:"Abel", sans-serif;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: var(--cor-fundo);
+}
+
+
+.botao_radio{
+    width: auto;
+    height: auto;
+}
+
+.titulo_principal{
+    font-family: var(--fonte-titulo);
+    font-size: 50px;
+    text-align: center;
+    background-color: white;
+    border-bottom: 2px solid black;
+    height: 2em;
+}
+.painel_cadastro{
+    font-family: var(--fonte-secundaria);
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    gap: 3em;
+    margin: 3em;
+}
+
+.painel_registrar{
+    text-align:center;
+    display: block;
+    width: auto;
+    gap: 1em;
+    width: 20em;
+    background-color: rgb(253, 254, 255);
+    border-radius: 10px;
+}
+
+li {
+    list-style-type: none;
+    margin: 0.5em 0;
+    
+}
+input{
+    text-align: center;
+    width: 18em;
+    height: 1.5em;
+    border: none;
+    border-bottom: 2px solid  black; 
+    outline: 0;
+    
+}
+button{
+    width: 9em;
+    height: 2em;
+    background-color: #bdeadb;
+    border-radius: 10px;
+    border: 2px solid var(--cor-borda);
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.2);
+}
+.painel_mostrar_investimentos{
+    font-family: var(--fonte-secundaria);
+    display: flex;
+    gap: 2em;
+    text-align: center;
+    padding: 2em 5em ;
+    width: auto;
+}
+table{
+    border-collapse: collapse;
+    background-color: rgb(253, 254, 255);
+    border-radius: 10px;
+    padding: 3px;
+    width: 100%;
+}
+
+td{  
+    padding: 2px 5px;
+}
+tbody tr:nth-child(even){
+    background-color: #00000017;
+}
+.painel_navegacao{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.botao_navegacao{
+    background-color:white;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 1.5em;
+    font-family: var(--fonte-secundaria);
+    font-weight: 700;
+}
+
+.botao_navegacao:hover{
+    font-size: 1.7em;
+    transform: scale(1);
+}
+
