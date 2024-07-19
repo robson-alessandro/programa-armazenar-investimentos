@@ -23,11 +23,28 @@ function buscarDividendos(req,res){
 
 function deletarMovimentacao(req,res){
     const id = req.params.id
-    console.log(id)
-    conennection.query('')
+    conennection.query('DELETE FROM movimentacoes WHERE id_movimentacao = ?',[id],function(error,result){
+        if(error){
+            res.json('não foi possivel deletar')
+        }else{
+            res.status(200).json(result)
+        }
+    })
+}
+function deletarDividendo(req,res){
+    const id = req.params.id
+    conennection.query('DELETE FROM dividendos WHERE id_dividendo = ?',[id],function(error,result){
+        if(error){
+            res.json('não foi possivel deletar')
+        }else{
+            res.status(200).json(result)
+        }
+    })
 }
 
 module.exports={
     buscarMovimentacao,
-    buscarDividendos
+    buscarDividendos,
+    deletarMovimentacao,
+    deletarDividendo
 }
