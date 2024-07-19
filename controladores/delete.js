@@ -12,10 +12,22 @@ function buscarMovimentacao(req,res){
     conennection.query('SELECT * FROM movimentacoes WHERE nome = ?',[nome],function(error,result,field){
         res.status(200).json(result)
     })
+}
 
+function buscarDividendos(req,res){
+    const nome = req.params.nome
+    conennection.query('SELECT * FROM dividendos WHERE nome = ?',[nome], function (error,result,field){
+        res.status(200).json(result)
+    })
+}
 
+function deletarMovimentacao(req,res){
+    const id = req.params.id
+    console.log(id)
+    conennection.query('')
 }
 
 module.exports={
-    buscarMovimentacao
+    buscarMovimentacao,
+    buscarDividendos
 }

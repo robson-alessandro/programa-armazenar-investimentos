@@ -15,12 +15,25 @@ body{
     background-color: var(--cor-fundo);
 }
 
-
-.botao_radio{
-    width: auto;
-    height: auto;
+.botao_navegacao{
+    background-color:white;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    font-size: 1.5em;
+    font-family: var(--fonte-secundaria);
+    font-weight: 700;
 }
 
+.painel_navegacao{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+.botao_navegacao:hover{
+    font-size: 1.7em;
+    transform: scale(1);
+}
 .titulo_principal{
     font-family: var(--fonte-titulo);
     font-size: 50px;
@@ -29,6 +42,34 @@ body{
     border-bottom: 2px solid black;
     height: 2em;
 }
+.painel_mostrar_investimentos{
+    font-family: var(--fonte-secundaria);
+    display: flex;
+    gap: 2em;
+    text-align: center;
+    padding: 2em 5em ;
+    width: auto;
+}
+table{
+    border-collapse: collapse;
+    background-color: rgb(253, 254, 255);
+    border-radius: 10px;
+    padding: 3px;
+    width: 100%;
+}
+
+td{  
+    padding: 2px 5px;
+}
+tbody tr:nth-child(even){
+    background-color: #00000017;
+}
+
+.botao_radio{
+    width: auto;
+    height: auto;
+}
+
 .painel_cadastro{
     font-family: var(--fonte-secundaria);
     display: flex;
@@ -37,15 +78,34 @@ body{
     gap: 3em;
     margin: 3em;
 }
-
 .painel_registrar{
-    text-align:center;
     display: block;
-    width: auto;
+    text-align:center;
     gap: 1em;
     width: 20em;
     background-color: rgb(253, 254, 255);
     border-radius: 10px;
+}
+.painel_delete{
+    display: flex;
+
+}
+.buscar_delete{
+    text-align: center;
+    background-color: rgb(253, 254, 255);
+    border-radius: 10px;
+    width: auto;
+    margin: auto;
+    margin-top: 2em;
+    gap: 5px;
+}
+.lista_delete{
+    padding: 8px;
+}
+.linha_delete{
+    display: flex;
+    justify-content: space-between;
+    gap:6px
 }
 
 li {
@@ -74,46 +134,6 @@ button{
 button:hover{
     transform: scale(1.2);
 }
-.painel_mostrar_investimentos{
-    font-family: var(--fonte-secundaria);
-    display: flex;
-    gap: 2em;
-    text-align: center;
-    padding: 2em 5em ;
-    width: auto;
-}
-table{
-    border-collapse: collapse;
-    background-color: rgb(253, 254, 255);
-    border-radius: 10px;
-    padding: 3px;
-    width: 100%;
-}
 
-td{  
-    padding: 2px 5px;
-}
-tbody tr:nth-child(even){
-    background-color: #00000017;
-}
-.painel_navegacao{
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-}
 
-.botao_navegacao{
-    background-color:white;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    font-size: 1.5em;
-    font-family: var(--fonte-secundaria);
-    font-weight: 700;
-}
-
-.botao_navegacao:hover{
-    font-size: 1.7em;
-    transform: scale(1);
-}
 

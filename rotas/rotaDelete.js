@@ -1,7 +1,9 @@
 const { Router} = require('express')
-const { buscarMovimentacao } = require('../controladores/delete')
+const { buscarMovimentacao, buscarDividendos} = require('../controladores/delete')
 const rotaDelete = Router()
 
-rotaDelete.get("/:nome",buscarMovimentacao)
+rotaDelete.get("/movimentacoes/:nome",buscarMovimentacao)
+rotaDelete.get("/dividendos/:nome",buscarDividendos)
+rotaDelete.delete('/:id',)
 
 module.exports= rotaDelete
