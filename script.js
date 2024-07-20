@@ -156,3 +156,4 @@ botaoAlterar.addEventListener('click',()=>{
     painelCadastro.setAttribute('style','display:none')
     painelDelete.setAttribute('style','display:none')
 })
+

@@ -17,6 +17,5 @@ app.use("/delete",rotaDelete)
 app.listen(port,()=>{
     console.log(` escutando a porta ${port} `)
     return ("passou")
-
 })
 

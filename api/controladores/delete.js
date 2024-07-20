@@ -42,9 +42,31 @@ function deletarDividendo(req,res){
     })
 }
 
+function deletarTudo(req, res){
+    const nome = req.params.nome
+    conennection.query('DELETE FROM movimentacoes WHERE nome = ?',[nome],function(error,result){
+        if(error){
+            console.log(error)
+        }
+    })
+    conennection.query('DELETE FROM dividendos WHERE nome = ?',[nome],function(error,result){
+        if(error){
+            console.log(error)
+        }
+    })
+    conennection.query('DELETE FROM investimentos WHERE nome = ?',[nome],function(error,result){
+        if(error){
+            console.log(error)
+        }else{
+            res.status(200).json(`investimento ${nome} deletado com sucesso`)
+        }
+    })
+}
+
 module.exports={
     buscarMovimentacao,
     buscarDividendos,
     deletarMovimentacao,
-    deletarDividendo
+    deletarDividendo,
+    deletarTudo
 }
