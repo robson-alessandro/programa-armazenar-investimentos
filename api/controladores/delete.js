@@ -7,6 +7,7 @@ const conennection = mysql.createConnection({
     database: 'investimento'
 })
 
+// faz a busca de dados sobre movimentação e os retorna para o frontend
 function buscarMovimentacao(req,res){
     const nome = req.params.nome
     conennection.query('SELECT * FROM movimentacoes WHERE nome = ?',[nome],function(error,result,field){
@@ -14,6 +15,7 @@ function buscarMovimentacao(req,res){
     })
 }
 
+// faz a busca de dados sobre dividendo e os retorna para o frontend
 function buscarDividendos(req,res){
     const nome = req.params.nome
     conennection.query('SELECT * FROM dividendos WHERE nome = ?',[nome], function (error,result,field){
@@ -21,6 +23,7 @@ function buscarDividendos(req,res){
     })
 }
 
+//recebe o id da moviementacao e faz o delete dela no banco de dados
 function deletarMovimentacao(req,res){
     const id = req.params.id
     conennection.query('DELETE FROM movimentacoes WHERE id_movimentacao = ?',[id],function(error,result){
@@ -31,6 +34,8 @@ function deletarMovimentacao(req,res){
         }
     })
 }
+
+//recebe o id da dividendo e faz o delete dela no banco de dados
 function deletarDividendo(req,res){
     const id = req.params.id
     conennection.query('DELETE FROM dividendos WHERE id_dividendo = ?',[id],function(error,result){
@@ -42,6 +47,7 @@ function deletarDividendo(req,res){
     })
 }
 
+//recebe o nome do investimento como parametro e busca todas as movimentações, dividendos e investimento e deleta todos os dados com esse nome 
 function deletarTudo(req, res){
     const nome = req.params.nome
     conennection.query('DELETE FROM movimentacoes WHERE nome = ?',[nome],function(error,result){

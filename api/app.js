@@ -5,6 +5,7 @@ app.use(cors())
 app.use(express.json());
 const rota = require ('./rotas/rota')
 const rotaDelete = require('./rotas/rotaDelete')
+const rotaAlterar = require('./rotas/rotaAlterar')
 const port = 4567
 
 
@@ -12,6 +13,8 @@ const port = 4567
 app.use("/movimentacao",rota)
 
 app.use("/delete",rotaDelete)
+
+app.use("/alterar",rotaAlterar)
 
 
 app.listen(port,()=>{

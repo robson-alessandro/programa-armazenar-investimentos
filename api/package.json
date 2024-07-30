@@ -2,9 +2,9 @@
   "name": "projeto_site_registrar_investimento",
   "version": "1.0.0",
   "description": "-pragrama esta em desenvolvimento, ira faz o controle de investimentos, armazena movimentações de compra e venda, recebimentos de dividendos.\r -para o desenvolvimento sera utilizado html, css, javascript para se conectar com o node como blackend, tera um banco\r de dados com mysql para fazer o armazenamento dos dados.",
-  "main": "backend.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon backend.js"
+    "start": "nodemon "
   },
   "keywords": [],
   "author": "",

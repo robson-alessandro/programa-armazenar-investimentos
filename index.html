@@ -8,6 +8,7 @@
     <script type="module" src="./script.js" defer></script>
     <script src="/metodos/cadastrar.js" defer></script>
     <script src="/metodos/deletar.js" defer></script>
+    <script src="/metodos/alterar.js" defer></script>
     <title>principal</title>
 </head>
 <body>
@@ -106,7 +107,7 @@
     </section>
 
     <section class="painel_delete" style="display: none">
-        <div class="buscar_delete">
+        <div class="buscar_delete buscador">
             <h2>deletar</h2>
             <p>digite o nome do investimento para buscar os dados:</p>
             <input type="text" id="input_delete">
@@ -116,11 +117,13 @@
     </section>
 
     <section class="painel_alterar" style="display: none">
-        <h2>alterar</h2>
-        <p>digite o nome do investimento para buscar os dados:</p>
-        <input type="text" >
-        <button >buscar</button>
-
+        <div class="bucar_alterar buscador" >
+            <h2>alterar</h2>
+            <p>digite o nome do investimento para buscar os dados:</p>
+            <input type="text" id="input_alterar" >
+            <button class="busca_alterar">buscar</button>
+            <ul class="lista_alterar"></ul>
+        </div>
     </section>
 
     <section class="painel_mostrar_investimentos">

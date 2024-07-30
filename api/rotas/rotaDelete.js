@@ -1,3 +1,4 @@
+// este arquivo guarda as rotas responsaveis por deletar os dados do banco de dados
 const { Router} = require('express')
 const { buscarMovimentacao, buscarDividendos, deletarMovimentacao, deletarDividendo,deletarTudo} = require('../controladores/delete')
 const rotaDelete = Router()
