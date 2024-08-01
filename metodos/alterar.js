@@ -7,13 +7,13 @@ const listaAlterar = document.querySelector('.lista_alterar')
 
 let resultadoBuscaAlterar 
 
-//captura o nome da movimentação e faz o cahamado para a função para buscar os dados
+//captura o nome da movimentação e faz o chamado para a função para buscar os dados
 botaoBuscaAlterar.addEventListener('click',async()=>{
     resultadoBuscaAlterar = inputAlterar.value
     buscarDadosAlterar(resultadoBuscaAlterar)
 })
 
-// recebe o nome da movimentação faz um cahmado a api com o metodo get e busca os dados e os apresenta no html
+// recebe o nome da movimentação e faz um chamado para a api com o metodo get e busca os dados e os apresenta no html
 async function buscarDadosAlterar(nome){ 
     let movimentacoes 
     await axios.get(`http://localhost:4567/alterar/movimentacoes/${nome}`).then(({data})=>movimentacoes=data)
@@ -93,7 +93,10 @@ async function alterarDividendo(id,nome,valor,data){
         data:data
     }
     await axios.put(`http://localhost:4567/alterar/dividendo/${id}`,dividendo).then(({data})=> data.sqlMessage==undefined?alert(data):alert(data.sqlMessage))
-    
+    listaAlterar.innerHTML=''
+    inputAlterar.value = ''
+    let ultimoElemento =painelAlterar.lastChild
+    painelAlterar.removeChild(ultimoElemento)
 }
 
 // função para chamar a api como o metodo put e o envio dos novos dados para alterar a movimentação
@@ -105,6 +108,11 @@ async function alterarMovimentacao(id,nome,quantidade,valor,data){
         data:data
     }
     await axios.put(`http://localhost:4567/alterar/movimentacao/${id}`,movimentacao).then(({data})=> data.sqlMessage==undefined?alert(data):alert(data.sqlMessage))
-    console.log(movimentacao)
+    listaAlterar.innerHTML = ''
+    inputAlterar.value = ''
+    let ultimoElemento =painelAlterar.lastChild
+    painelAlterar.removeChild(ultimoElemento)
 }
+
+
 
