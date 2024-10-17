@@ -92,6 +92,12 @@ tbody tr:nth-child(even){
 .painel_alterar{
     display: flex;
 }
+
+.painel_busca_detalhada{
+    background-color: rgb(253, 254, 255) ;
+    margin-top: 1em;
+    padding-left: 1.5em;
+}
 .alterar_dados{
     display: flex;
     flex-direction: column;

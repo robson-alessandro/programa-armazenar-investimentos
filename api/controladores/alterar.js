@@ -7,6 +7,14 @@ const conennection = mysql.createConnection({
     database: 'investimento'
 })
 
+//busca os dados de investimentos para retornar ao frontend
+function buscarInvestimento(req, res){
+    const nome = req.params.nome
+    conennection.query('SELECT * FROM investimentos WHERE nome = ?',[nome],function(error,result){
+        res.json(result)
+    })
+}
+
 //busca os dados de movimentação para retornar ao frontend
 function buscarMovimentacoes(req,res){
     const nome = req.params.nome
@@ -20,6 +28,18 @@ function buscarDividendos(req,res){
     const nome = req.params.nome
     conennection.query('SELECT * FROM dividendos WHERE nome = ?',[nome],function(error,result){
         res.json(result)
+    })
+}
+
+//recebe os dados novo e os altera na tabela de investimento
+function alterarInvestimento(req, res){
+    const nome =req.params.nome
+    conennection.query('UPDATE investimentos SET tipo = ?, data_compra = ? WHERE nome = ?',[req.body.tipo,req.body.data,nome], function(error,result){
+        if(error){
+            res.json(error)
+        }else{
+            res.json('alterado com sucesso')
+        }
     })
 }
 
@@ -38,6 +58,7 @@ function alterarDividendo(req, res){
 //recebe os dados novo e os altera na tabela de movimetação
 function alterarMovimentacao(req,res){
     const id = req.params.id
+    
     conennection.query('UPDATE movimentacoes SET data_movimentacao = ?, valor = ?, quantidade = ? WHERE id_movimentacao= ?',[req.body.data, req.body.valor, req.body.quantidade,id], function(error, result){
         if(error){
             res.json(error)
@@ -50,6 +71,8 @@ function alterarMovimentacao(req,res){
 module.exports = {
     buscarMovimentacoes,
     buscarDividendos,
+    buscarInvestimento,
+    alterarInvestimento,
     alterarDividendo,
     alterarMovimentacao
 }

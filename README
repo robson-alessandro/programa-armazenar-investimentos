@@ -1,7 +1,1 @@
--pragrama esta em desenvolvimento, ira faz o controle de investimentos, armazena movimentações de compra e venda, recebimentos de dividendos.
--para o desenvolvimento sera utilizado html, css, javascript. sera utilizado node.js como blackend para criar a api utilizando express e axios, tera um banco
-de dados com mysql para fazer o armazenamento dos dados.
--sera preciso fazer a instalação das dependencias axios, cors, express, mysql2, nodemon
--um banco de dados em sql com três tabelas
--inicio do programa ira realizar a busca no banco de dados e preencher a tabela com os dados
--função delete ira buscar as movimentações pelo nome e assim apaga a movimentção
+-pragrama esta em desenvolvimento, ira faz o controle de investimentos, armazena movimentações de compra e venda, recebimentos de dividendos. -para o desenvolvimento sera utilizado html, css, javascript. sera utilizado node.js como blackend para criar a api utilizando express e axios, tera um banco de dados com mysql para fazer o armazenamento dos dados. -sera preciso fazer a instalação das dependencias axios, cors, express, mysql2, nodemon -um banco de dados em sql com três tabelas -inicio do programa ira realizar a busca no banco de dados e preencher a tabela com os dados -função delete ira buscar as movimentações pelo nome e assim apaga a movimentção
