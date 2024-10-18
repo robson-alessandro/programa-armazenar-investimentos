@@ -1,3 +1,5 @@
+import { cadastraDividendo, cadastraInvestimento, cadastraMovimentacao } from '../../service/alterarBd/cadastrobanco.js';
+
 //este arquivo guarda as funções para fazer o cadastros das movimentações
 const botaoCompra = document.querySelector('#botao_compra');
 const botaoVenda = document.querySelector('#botao_venda');
@@ -57,19 +59,11 @@ export default function cadastrar() {
 		compra.init(nomeInvestimentoCompra.value.toUpperCase(), tipoInvestimento, dataInvestimento.value, quantidadeInvestimento.value, valorCompra.value, 'compra');
 
 		if (primeiraCompra.checked) {
-			await axios
-				.post(`http://localhost:4567/movimentacao/primeira`, compra)
-				.then(async ({ data }) => {
-					alert(data);
-					await axios.post(`http://localhost:4567/movimentacao`, compra).then(({ data }) => alert(data));
-				})
-				.catch(() => {
-					alert('erro ao salvar os dados');
-				});
+			cadastraInvestimento(compra);
+			cadastraMovimentacao(compra);
 		} else {
-			await axios.post(`http://localhost:4567/movimentacao`, compra).then(({ data }) => alert(data));
+			cadastraMovimentacao(compra);
 		}
-
 		nomeInvestimentoCompra.value = '';
 		dataInvestimento.value = '';
 		botaoRadioAcao.checked = false;
@@ -91,7 +85,7 @@ export default function cadastrar() {
 		const venda = new Object(Vendas);
 		venda.init(nomeInvestimentoVenda.value.toUpperCase(), dataVenda.value, quantidadeVenda.value, valorVenda.value, 'venda');
 
-		await axios.post(`http://localhost:4567/movimentacao`, venda).then(({ data }) => alert(data));
+		cadastraMovimentacao(venda);
 
 		nomeInvestimentoVenda.value = '';
 		dataVenda.value = '';
@@ -110,8 +104,7 @@ export default function cadastrar() {
 
 		const dividendo = new Object(Dividendos);
 		dividendo.init(nomeInvestimentoDividendo.value.toUpperCase(), dataDividendo.value, valorDividendo.value);
-
-		await axios.post(`http://localhost:4567/movimentacao/dividendo`, dividendo).then(({ data }) => alert(data));
+		cadastraDividendo(dividendo);
 
 		nomeInvestimentoDividendo.value = '';
 		dataDividendo.value = '';

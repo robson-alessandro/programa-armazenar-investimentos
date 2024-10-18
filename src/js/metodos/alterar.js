@@ -1,4 +1,4 @@
-import { alteraDadosDividendos, alteraDadosInvestimento, alteraDadosMovimentacao } from '../../service/alterarBd/alteraBando.js';
+import { alteraDadosDividendos, alteraDadosInvestimento, alteraDadosMovimentacao } from '../../service/alterarBd/alteraBanco.js';
 import { getDadosdividendos, getDadosInvestimentos, getDadosMovimentacao } from '../../service/alterarBd/buscaDadosAlterar.js';
 
 // este arquivo guarda as funções que são responsaveis por alterar os dados nas tabelas movimentações e dividendos

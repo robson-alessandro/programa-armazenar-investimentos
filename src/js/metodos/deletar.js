@@ -1,3 +1,5 @@
+import { deletaDividendo, deletaMovimentacao, deletatudo } from '../../service/alterarBd/deletabanco.js';
+
 //este arquivo guarda as funções para apagar os dados do banco de dados
 const buscaDelete = document.querySelector('.busca_delete');
 const listaParaDeletar = document.querySelector('.lista_delete');
@@ -14,14 +16,14 @@ export default function deleta() {
 
 //recebe o nome do invetimento faz o chamado a api com o metodo get e recebe os dados e os coloca na pagina
 async function buscarDados(resultadoBusca) {
-	let movimentacoes;
 	const opacaoDeletarTudo = document.createElement('li');
+	let movimentacoes = [];
 
 	await axios.get(`http://localhost:4567/delete/movimentacoes/${resultadoBusca}`).then(({ data }) => {
 		movimentacoes = data;
 	});
 
-	let dividendos;
+	let dividendos = [];
 	await axios.get(`http://localhost:4567/delete/dividendos/${resultadoBusca}`).then(({ data }) => {
 		dividendos = data;
 	});
@@ -74,28 +76,22 @@ async function buscarDados(resultadoBusca) {
 }
 
 //recebe o id da movimentação para ser deletada e faz o chamado a api com o metodo delete para deletar a movimentação
-async function deleteDadosMovimentacao(id) {
-	await axios.delete(`http://localhost:4567/delete/movimentacoes/${id}`).then(({ data }) => {
-		console.log(data);
-	});
+function deleteDadosMovimentacao(id) {
+	deletaMovimentacao(id);
 	listaParaDeletar.innerText = '';
 	buscarDados(resultadoBusca);
 }
 
 //recebe o id da movimentação para ser deletada e faz o chamado a api com o metodo delete para deletar a dividendo
-async function deleteDadosDividendos(id) {
-	await axios.delete(`http://localhost:4567/delete/dividendos/${id}`).then(({ data }) => {
-		console.log(data);
-	});
+function deleteDadosDividendos(id) {
+	deletaDividendo(id);
 	listaParaDeletar.innerText = '';
 	buscarDados(resultadoBusca);
 }
 
 // recebe o nome do investimento e deleta todos os dados do investimento de uma vez so
-async function deletarTudo(nome) {
-	await axios.delete(`http://localhost:4567/delete/tudo/${nome}`).then(({ data }) => {
-		alert(data);
-	});
+function deletarTudo(nome) {
+	deletatudo(nome);
 	listaParaDeletar.innerText = '';
 	buscarDados(resultadoBusca);
 	inputDelete.value = '';
