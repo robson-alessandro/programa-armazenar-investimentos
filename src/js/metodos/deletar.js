@@ -1,3 +1,4 @@
+import { getDadosdividendos, getDadosMovimentacao } from '../../service/alterarBd/buscaDadosAlterar.js';
 import { deletaDividendo, deletaMovimentacao, deletatudo } from '../../service/alterarBd/deletabanco.js';
 
 //este arquivo guarda as funções para apagar os dados do banco de dados
@@ -16,18 +17,11 @@ export default function deleta() {
 
 //recebe o nome do invetimento faz o chamado a api com o metodo get e recebe os dados e os coloca na pagina
 async function buscarDados(resultadoBusca) {
+	let dividendos = await getDadosdividendos(resultadoBusca);
+	dividendos = await getDadosdividendos(resultadoBusca);
+	const movimentacoes = await getDadosMovimentacao(resultadoBusca);
+
 	const opacaoDeletarTudo = document.createElement('li');
-	let movimentacoes = [];
-
-	await axios.get(`http://localhost:4567/delete/movimentacoes/${resultadoBusca}`).then(({ data }) => {
-		movimentacoes = data;
-	});
-
-	let dividendos = [];
-	await axios.get(`http://localhost:4567/delete/dividendos/${resultadoBusca}`).then(({ data }) => {
-		dividendos = data;
-	});
-
 	opacaoDeletarTudo.innerHTML = `
         <p>para deletar todas as movimentações</p>
         <Button class= "btnDeletatudo" >apagar</Button>
@@ -54,6 +48,10 @@ async function buscarDados(resultadoBusca) {
 		listaParaDeletar.appendChild(linha);
 	});
 
+	criaBotoes();
+}
+
+function criaBotoes() {
 	const btnDeletatudo = document.querySelector('.btnDeletatudo');
 	const btnDeletaMovimentacao = document.querySelectorAll('.btnDeletaMovimentacao');
 	const btnDeletaDividendo = document.querySelectorAll('.btnDeletaDividendo');
@@ -64,29 +62,17 @@ async function buscarDados(resultadoBusca) {
 
 	btnDeletaMovimentacao.forEach((botao) => {
 		botao.addEventListener('click', () => {
-			deleteDadosMovimentacao(botao.value);
+			let linha = botao.parentNode;
+			deletaMovimentacao(botao.value, linha);
 		});
 	});
 
 	btnDeletaDividendo.forEach((botao) => {
 		botao.addEventListener('click', () => {
-			deleteDadosDividendos(botao.value);
+			let linha = botao.parentNode;
+			deletaDividendo(botao.value, linha);
 		});
 	});
-}
-
-//recebe o id da movimentação para ser deletada e faz o chamado a api com o metodo delete para deletar a movimentação
-function deleteDadosMovimentacao(id) {
-	deletaMovimentacao(id);
-	listaParaDeletar.innerText = '';
-	buscarDados(resultadoBusca);
-}
-
-//recebe o id da movimentação para ser deletada e faz o chamado a api com o metodo delete para deletar a dividendo
-function deleteDadosDividendos(id) {
-	deletaDividendo(id);
-	listaParaDeletar.innerText = '';
-	buscarDados(resultadoBusca);
 }
 
 // recebe o nome do investimento e deleta todos os dados do investimento de uma vez so
