@@ -76,9 +76,8 @@ function criaBotoes() {
 }
 
 // recebe o nome do investimento e deleta todos os dados do investimento de uma vez so
-function deletarTudo(nome) {
+async function deletarTudo(nome) {
 	deletatudo(nome);
 	listaParaDeletar.innerText = '';
-	buscarDados(resultadoBusca);
 	inputDelete.value = '';
 }

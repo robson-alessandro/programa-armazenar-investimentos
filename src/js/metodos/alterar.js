@@ -28,7 +28,7 @@ async function buscarDadosAlterar(nome) {
 	const linhaInvestimento = document.createElement('li');
 	linhaInvestimento.classList.add('linha', 'linha_alterar');
 	linhaInvestimento.innerHTML = ` 
-        <p>nome: ${investimento[0].nome} - data: ${investimento[0].data_compra}</p>
+        <p>nome: ${investimento[0].nome} - investimento do tipo: ${investimento[0].tipo}</p>
         <button class="btnNovosDadosInvestimento" value = ${investimento[0].nome}>selecionar</button>
     `;
 	listaAlterar.appendChild(linhaInvestimento);

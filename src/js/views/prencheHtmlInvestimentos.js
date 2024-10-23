@@ -58,8 +58,8 @@ function pegarQuantidadeTotalInvestido(nome, lista) {
 }
 
 // retorna os investimentos no banco de dados e os coloca em um tabela e apresenta eles no html(nome,tipo,data compra, valor dos dividendos, quantidade de cada investimento, valor total)
-export default async function consultaSql() {
-	// listas que iram receber os dados do banco de dados na função consultaSql
+export default async function prencherTabelaInvestimentos() {
+	// listas que iram receber os dados do banco de dados na função prencherTabelaInvestimentos
 	let dadosDividendos;
 	let dadosQuantidade;
 	let dadosInvestimento;
